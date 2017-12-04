@@ -1,0 +1,24 @@
+<div id="menu_logo" class="clearfix">
+  <% if controller.controller_name == "top" && controller.action_name == 'index' %>
+  <h1 class="logo">
+    <%= link_to "TOPへ", :root %>
+  </h1>
+  <% else %>
+  <p class="logo">
+    <%= link_to "TOPへ", :root %>
+  </p>
+  <% end %>
+  <nav>
+    <ul id="dropmenu"> <!-- ページの上。全ページ固定-->
+      <li> <!--ホーム-->
+        <%= link_to "TOP", :root %>
+      </li>
+      <li> <!--ホーム-->
+        <%= link_to "軌跡", :progress %>
+      </li>
+      <li> <!--ホーム-->
+        <%= link_to "メンバー用", :login %>
+      </li>
+    </ul>
+  </nav>
+</div>

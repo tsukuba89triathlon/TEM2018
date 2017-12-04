@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <% if @page_title %>
+    <title><%= @page_title %> | TEM2018</title>
+    <% else %>
     <title>TEM2018</title>
+    <% end %>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <%= yield %>
+    <header><%= render 'shared/header' %></header>
+    <main><%= yield %></main>
+    <footer><%= render 'shared/footer' %></footer>
   </body>
 </html>

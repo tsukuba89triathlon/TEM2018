@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Member:</strong>
+  <%= @log.member %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @log.date %>
+</p>
+
+<p>
+  <strong>Dist:</strong>
+  <%= @log.dist %>
+</p>
+
+<%= link_to 'Edit', edit_log_path(@log) %> |
+<%= link_to 'Back', logs_path %>
