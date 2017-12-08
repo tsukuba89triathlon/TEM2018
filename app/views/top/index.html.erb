@@ -1,13 +1,11 @@
 <% @page_title = "TOPページ" %>
-<div class="contents clearfix">
-  <section class="article">
-    <article class="topics">
-      <h2>達成状況</h2>
-      <p><%= 'hoge' %> km / 40000 km</p>
-      <div>ここに世界地図か何かで進捗を見たい</div>
-      <h2>今月の進捗</h2>
-      カレンダーか何かで。
-    </article>
-  </section>
-
-</div>
+<article class="topics">
+  <h2>達成状況</h2>
+  <p><%= 'hoge' %> km / 40000 km</p>
+  <div>ここに世界地図か何かで進捗を見たい</div>
+  <div><%= high_chart("my_chart", @chart) %></div>
+  <h2>今月の進捗</h2>
+  <table class="calender">
+    <%= calender(@today,1).html_safe %><%# 指定した日付を含む月のカレンダーを表示 日曜始まりなら0、月曜始まりは1 %>
+  </table>
+</article>

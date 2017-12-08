@@ -1,6 +1,6 @@
-class SessionController < ApplicationController
+class SessionsController < ApplicationController
   def create
-    member = Member.find_by(user_name: params[:username])
+    member = Member.find_by(username: params[:username])
     if member == nil
       flash.alert = "ユーザーが存在しません。"
     else
@@ -8,10 +8,10 @@ class SessionController < ApplicationController
       if member
         session[:member_id] = member.id
       else
-        flash.alert = "名前とパスワードが一致しません。"
+        flash.alert = "ユーザー名とパスワードが一致しません。"
       end
     end
-    redirect_to flash[:referer]
+    redirect_to params[:referer]
   end
 
   def destroy

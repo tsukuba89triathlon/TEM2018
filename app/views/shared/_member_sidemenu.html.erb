@@ -1,0 +1,19 @@
+<div class="member_menu">
+  <%= "#{current_member.username}さん、こんにちは。" %><br/>
+  <div class="info">
+    【最近の走行距離】
+    <ul>
+      <li>今日：<%= %>km</li>
+      <li>今週：<%= %>km</li>
+      <li>今月：<%= %>km</li>
+    </ul>
+  </div>
+  <div class="menu">
+    【メンバーメニュー】
+    <ul>
+      <li><%= link_to "プロフィール", "#" %></li>
+      <li><%= link_to "ログ登録" %></li>
+      <li><%= link_to "ログアウト", :logout %></li>
+    </ul>
+  </div>
+</div>

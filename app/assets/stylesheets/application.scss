@@ -23,6 +23,12 @@
  $blue: #2525ff;
  $purple: #A176CC;
  $deep_purple: #663498;
+ $table_body: #326E87; //tdの文字色
+ $table_index: #1C5D79; //
+ $border_color: #1C5D79; //罫線の色
+ $header_bg: rgb(240, 240, 240); //見出し行の背景
+ $header_text: #FF8C00; //見出し行の文字色
+ $body_bg: #dfedf3; //データ行の背景
  html{
    font-family: Verdana,sans-serif; /*フォントの指定*/
    line-height: 1.5; /*行の高さを指定*/
@@ -204,6 +210,97 @@
        .contents{ /*メイン文章エリア*/
          width: 960px;
          margin: 30px auto 30px;
+         .heading{
+           display: block;
+           background: url(#);
+           color: $skyblue;
+           padding: 10px 12px;
+           letter-spacing: 1px;
+           font-size: 1.6rem;
+           text-align: center;
+         }
+         .article{
+           width: 74%;
+           display: block;
+           float: left;
+           border: none;
+           height: auto;
+           box-sizing: border-box;
+           table{
+             width: 100%;
+             padding: 3px 10px;
+             font-size: 1.2rem;
+             color: $table_body;
+             border-collapse: collapse;
+             border: 2px solid #111;
+             margin: 10px 0;
+             text-align: center;
+             thead{
+               tr{
+                 height: 32px;
+                 th{
+                   background-color: $header_bg;
+                   background-repeat: repeat-x;
+                   border-collapse: collapse;
+                   border-left: 1px solid $border_color;
+                   border-right: 1px solid $border_color;
+                   border-bottom: 3px double #111;
+                   color: $header_text;
+                   height: 32px;
+                   line-height: 32px;
+                   text-align: center;
+                 }
+                 td{
+                   border: 1px solid #111;
+                   color: $header_text;
+                   background-color: $header_bg;
+                   border-bottom: 3px double #111;
+                 }
+               }
+             }
+             tbody{
+               tr{
+                 background-color: $body_bg;
+                 border: 1px solid #111;
+                 th{
+                   text-align: center;
+                 }
+                 td{
+                   border: 1px solid #111;
+                 }
+               }
+             }
+             caption{
+               text-align: left;
+               font-size: 1.6rem;
+               border-bottom: 2px dashed #111;
+               margin-bottom: 15px;
+               padding-left: 10px;
+             }
+           }
+         }
+         .sidemenu{ /*サイドメニュー*/
+           float: right;
+           width: 24%;
+           margin-top: 50px;
+           box-sizing: border-box;
+           .login_form{
+             border: 1px solid #111;
+             padding: 5px;
+           }
+           .member_menu{
+             border: 1px solid #111;
+             padding: 5px;
+           }
+           .heading{
+             display: block;
+             color: $skyblue;
+             padding: 5px 12px;
+             letter-spacing: 1px;
+             font-size: 1.6rem;
+             text-align: center;
+           }
+         }
          time{
            text-align: right;
          }
@@ -248,217 +345,6 @@
            }
          }
        }
-       .article{
-         width: 74%;
-         display: block;
-         float: left;
-         border: none;
-         height: auto;
-         box-sizing: border-box;
-       }
-       .heading{
-         display: block;
-         background: url(#);
-         color: $skyblue;
-         padding: 10px 12px;
-         letter-spacing: 1px;
-         font-size: 1.6rem;
-         text-align: center;
-       }
-       .center{
-         margin: auto;
-         text-align: center;
-       }
-       .box{
-         display: block;
-         height: 270px;
-         margin-bottom: 30px;
-         transition: opacity 0.15s;
-         &:hover{ /*マウスオーバー時の効果指定*/
-           opacity: 0.7; /*不透明度を指定*/
-         }
-         a{
-           &:hover{
-             text-decoration: none;
-           }
-         }
-         .image{
-           width: 50%;
-           height: 100%;
-         }
-         &:nth-of-type(even){
-           .image{
-             float: right;
-           }
-           .topic{
-             float: left;
-           }
-         }
-         &:nth-of-type(odd){
-           .image{
-             float: left;
-           }
-           .topic{
-             float: right;
-           }
-         }
-         .topic{
-           position: relative;
-           width: 50%;
-           height: 100%;
-           padding: 20px 10px 5px;
-           box-sizing: border-box; /*borderまでをwidthとする*/
-           background-color: #1097FF;
-           line-height: 1.6;
-         }
-         .title{
-           margin: 10px 20px 15px;
-           color: #FFF;
-           text-align: center;
-           font-weight: normal; /*見出し要素hにデフォルトの太字を解除*/
-           font-size: 2.0rem;
-         }
-         .desc{
-           color: #FFCD89;
-           font-size: 1.1rem;
-           list-style: none;
-           padding: 5px 10px;
-           text-align: left;
-           box-sizing: border-box;
-           width: 324px;
-           max-height: 172px;
-         }
-         .date{
-           color: #111;
-         }
-         .comment{
-           @extend .desc;
-           font-size: 1.4rem;
-         }
-       }
-       .half-box{
-         @extend .box;
-         width: 48.5%;
-         float: left;
-         margin: 5px;
-         box-sizing: border-box;
-         &:hover{
-           text-decoration: none;
-         }
-         a{
-           &:hover{
-             text-decoration: none;
-           }
-           .title{
-             margin: 0;
-             padding: 39px;
-           }
-         }
-         .desc{
-           font-size: 1.6rem;
-           padding: 20px 30px;
-         }
-       }
-       /*お問い合わせフォーム*/
-       .form{
-         width: 600px;
-         margin: 0 auto;
-         border: 1px solid #111;
-         .list_heading{
-           text-align: center;
-           display: block;
-           width: 100%;
-         }
-         .list_wrapper{
-           padding: 15px 0 0 0;
-         }
-         .list{
-           padding: 5px;
-           display: inline-block;
-           margin: 0 auto;
-           width: 420px;
-         }
-         label{
-           display: inline-block;
-           width: 132px;
-           text-align: right;
-         }
-         @mixin textarea{
-           font: 1em sans-serif;
-           width: 300px;
-           -moz-box-sizing: border-box;
-           box-sizing: border-box;
-           margin: 5px;
-           &:focus{
-             border-color: #000;
-           }
-         }
-         input{
-           display: inline-block;
-           width: 268px;
-           @include textarea;
-         }
-         #msg{
-           width: 430px;
-           height: 120px;
-         }
-       }
-       .low-height-box{
-         display: block;
-         height: 100px;
-         background: $skyblue;
-         .title{
-           margin: auto;
-           padding: 35px;
-           color: #FFCD89;
-         }
-       }
-       .horizontal-list{
-         list-style: none;
-         font-size: 1.5rem;
-         color: #aaa;
-       }
-       .sidemenu{ /*サイドメニュー*/
-         float: right;
-         width: 24%;
-         box-sizing: border-box;
-         .heading{
-           padding: 1px 5px;
-         }
-         h2{
-           margin: 7px auto;
-         }
-         h3{
-           font-size: 16px;
-           display: block;
-           background: $skyblue;
-           margin: 0;
-           padding: 10px;
-         }
-         .link{
-           text-align: left;
-           background: #91CFFF;
-           list-style: none;
-           margin: 0 auto;
-           padding: 0;
-           li{
-             border-top: 0.5px solid #fff;
-             box-sizing: border-box;
-             padding: 0 5px;
-             &:first-child{
-               border-bottom:  none;
-             }
-           }
-           a{
-             display: block;
-             padding: 10px 3px;
-             color: #111;
-             &:hover{
-               color: $orange;
-             }
-           }
-         }
-       }
      }
      footer{ /*フッターの設定*/
        margin: 0 auto;
@@ -471,130 +357,5 @@
          list-style: none;
        }
      }
-     .alert{
-       font-size: 1.8rem;
-     }
    }
- }
- @media (max-width: 480px), (max-device-width: 480px){ /*smartphone用*/
-   html{
-     font-size: 120%;
-     body{
-       width: auto;
-       header{
-         z-index: 999;
-         background-color: white;
-         width: auto;
-         top: 0;
-         padding-top: 30px;
-         #dropmenu{
-           height: 128px;
-           border-bottom: 0px;
-           li{
-             width: 25%;
-             height: 50%;
-             a{
-               padding: 12px;
-               height: 100%;
-             }
-           }
-         }
-       }
-       main{
-         .main{
-           box-sizing: border-box;
-           margin: 303px 20px 280px;
-           width: auto;
-           bottom: 240px;
-         }
-         .contents{
-           margin: 300px 0 136px 0;
-           width: 100%;
-         }
-         .article{
-           width: 100%;
-           float: none;
-           padding-bottom: 30px;
-           .topics{
-             margin: 10px 0;
-             box-sizing: border-box;
-             height: auto;
-             .box{
-               width: 100%;
-               height: 100%;
-               margin: 0;
-               .image{
-                 float: none;
-                 width: 100%;
-                 height: 100%;
-               }
-             }
-           }
-           .main-topic{
-             float: none;
-             width: 100%;
-             height: 80px;
-             padding: 0;
-             .date{
-               top: 10px;
-               left: 10px;
-             }
-             .title{
-               padding: 19px;
-               margin: 0;
-             }
-             .desc{
-               display: none;
-             }
-           }
-           .news{
-             margin: 20px 0;
-             float: none;
-             .scroll-list{
-               max-height: none;
-             }
-           }
-         }
-         .sidemenu{
-           display: none;
-           width: auto;
-           float: none;
-         }
-       }
-     }
-   }
-   .boxes .box{
-     height: auto;
-   }
-   .box .desc{
-       display: none;
-   }
-   .box .topic{
-       height: 76px;
-       padding: 0;
-       width: 100%;
-   }
-   .box .image{
-       height: 500px;
-       width: 100%;
-     overflow: hidden;
-   }
-
-   .low-height-box{
-     height: 127px;
-   }
-   footer{
-     position: fixed;
-     bottom: 0px;
-     max-height: 15%;
-   }
- }
- #triathlon{
-   h2{
-     border-bottom: double #111;
-     padding-bottom: 5px;
-   }
- }
- #tsukutora{
-   @extend #triathlon;
  }

@@ -1,5 +1,65 @@
 <% @page_title = "軌跡" %>
-<div class="contents clearfix">
+<div class="heading">
   <h1>ここまでの道のり</h1>
-  日毎にどれくらい進んだかを提示する。
 </div>
+<article>
+  <h2>最近7日間</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>月</th><th>日</th><th>曜</th><th>走行距離(km)</th><th>累積走行距離(km)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% 0.upto(6) do |i| %>
+      <% day = Date.today - i.days %>
+      <tr>
+        <td><%= day.strftime("%m") %></td>
+        <td><%= day.strftime("%d") %></td>
+        <td><%= day.strftime("%a") %></td>
+        <td><%=  %></td>
+        <td><%=  %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <h2>最近5週間</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>期間</th><th>走行距離(km)</th><th>累積走行距離(km)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% 0.upto(4) do |i| %>
+      <% day = Date.today.beginning_of_week - i.week %>
+      <tr>
+        <td><%= day.strftime("%m/%d") %>〜<% unless i==0 %>
+          <%= day.end_of_week.strftime("%m/%d") %>
+          <% end %>
+        </td>
+        <td><%=  %></td>
+        <td><%=  %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <h2>1か月ごと</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>月</th><th>走行距離(km)</th><th>累積走行距離(km)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% 1.upto(12) do |i| %>
+      <% day = Date.new(2018,i,1) %>
+      <tr>
+        <td><%= day.strftime("%m月") %></td>
+        <td><%=  %></td>
+        <td><%=  %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</article>

@@ -12,13 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :username %>
+    <%= form.label :username, "ユーザー名" %>
     <%= form.text_field :username, id: :member_username %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :password, "パスワード" %><br>
+    <%= f.password_field :password %>
   </div>
 
   <div class="field">
-    <%= form.label :age %>
-    <%= form.number_field :age, id: :member_age %>
+    <%= f.label :password_confirmation, "パスワード再入力" %><br>
+    <%= f.password_field :password_confirmation %>
   </div>
 
   <div class="actions">

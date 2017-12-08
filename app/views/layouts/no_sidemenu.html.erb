@@ -15,16 +15,9 @@
     <header><%= render 'shared/header' %></header>
     <main>
       <div class="contents clearfix">
-        <section class="article">
+        <section class="no_sidemenu_article">
           <%= yield %>
         </section>
-        <aside class="sidemenu">
-          <% unless current_member %>
-            <%= render 'shared/login_sidemenu' %>
-          <% else %>
-            <%= render 'shared/member_sidemenu' %>
-          <% end %>
-        </aside>
       </div>
     </main>
     <footer><%= render 'shared/footer' %></footer>
